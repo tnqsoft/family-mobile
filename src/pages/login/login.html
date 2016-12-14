@@ -1,0 +1,53 @@
+<!--
+  Generated template for the Login page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Đăng nhập hệ thống</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="frmLogin" (ngSubmit)="login()">
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                <ion-icon name="person"></ion-icon>
+              </ion-label>
+              <ion-input type="text" placeholder="Tài khoản" formControlName="username"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!frmLogin.controls.username.valid  && (frmLogin.controls.username.dirty || submitAttempt)">
+                <p>Cần nhập tài khoản</p>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <ion-icon name="key"></ion-icon>
+              </ion-label>
+              <ion-input type="password" placeholder="Mật khẩu" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!frmLogin.controls.password.valid  && (frmLogin.controls.password.dirty || submitAttempt)">
+                <p>Cần nhập mật khẩu</p>
+            </ion-item>
+            <ion-item>
+              <ion-label>Ghi nhớ đăng nhập</ion-label>
+              <ion-checkbox checked="true"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+          <ion-row>
+            <ion-col>
+              <button ion-button block type="submit">Đăng nhập</button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
